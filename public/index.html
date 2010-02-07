@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>iFUO</title>
+        <link type="text/css" href="theme/jquery-ui-1.7.2.custom.css" rel="Stylesheet" />
+        <link type="text/css" href="stylesheets/indicator.css" rel="stylesheet"/>
+        <script type="text/javascript" src="javascripts/jslib/json2.js"></script>
+        <script type="text/javascript" src="javascripts/jslib/jquery-1.4.js"></script>
+        <script type="text/javascript" src="javascripts/jslib/jquery-ui-1.7.2.custom.min.js"></script>
+        <script type="text/javascript" src="javascripts/jslib/indicator.js"></script>
+        <script type="text/javascript" src="javascripts/application.js"></script>
+    </head>
+    <body class="ui-widget">
+        <div class="center">
+            <p>Date: <input id="datepicker" type="text" size="10"></p>
+            <canvas id="canvas" width="800px" height="50px"></canvas>
+            <div id="legend"></div>
+            <div id="add_task_div">
+                <form id="add_task_form" method="post">
+                    <p>
+                        <label for="taskName">New Task:</label>
+                        <input id="taskName" class="text ui-widget-content ui-corner-all" type="text" name="taskName" maxlength="60"/>
+                    </p>
+                </form>
+            </div>
+            <ol id="tasks"></ol>
+        </div>
+    </body>
+</html>

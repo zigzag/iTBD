@@ -1,0 +1,14 @@
+h1. iFUO
+
+iFUO is a super light-weight task management & time tracking tool.
+It is my experiment using Rails 3 + jQuery1.4.
+
+But it will also be a handy tool for you to tracking your todo & time log.
+
+h2. ScreenShoot
+!http://github.com/zigzag/iFUO/raw/master/doc/ScreenShoot.png(ScreenShoot)!
+
+h2. Copyright
+
+Copyright (c) 2009 zigzag & wills. See LICENSE for details.
+

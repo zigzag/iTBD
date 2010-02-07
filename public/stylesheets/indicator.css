@@ -1,0 +1,48 @@
+#resources-graph-legend {
+    margin-top: -10px;
+    padding-left: 15px;
+}
+
+.resources-graph-legend-item {
+    display: inline-block;
+    font-weight: bold;
+    margin-right: 15px;
+    vertical-align: top;
+}
+
+.resources-graph-legend-item.total {
+    margin-left: 10px;
+}
+
+.resources-graph-legend-label {
+    display: inline-block;
+    text-align: left;
+}
+
+.resources-graph-legend-header {
+    font-size: 12px;
+}
+
+.resources-graph-legend-value {
+    font-size: 10px;
+}
+
+.resources-graph-legend-swatch {
+    vertical-align: top;
+    margin-top: 1px;
+    margin-right: 3px;
+}
+
+#taskName { font-size: 1.4em }
+#taskName, #tasks { width: 800px; }
+#tasks { list-style-type: numburic; margin: 0; padding: 0; }
+#tasks li { margin: 2px 3px 3px 20px; padding: 0.4em; padding-left: 1.5em;  height: 28px; }
+#tasks li span {margin-left: -1.3em; margin-top: 6px; display:inline-block;}
+#tasks .detail {margin: 0 3px 3px 3px; font-size:0.8em; color:#999;}
+
+.resources-graph-legend-header { width: 80px; overflow: hidden; }
+
+#ui-datepicker-div { display: none; }
+
+.center { width: 800px; overflow: visible; margin-left: auto; margin-right: auto; }
+.input_hour { float: right; width: 40px; }
