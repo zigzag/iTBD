@@ -3,7 +3,7 @@ h1. iTBD
 iTBD is a super light-weight todo management & time tracking tool.
 
 h2. ScreenShoot
-!http://github.com/zigzag/iFUO/raw/master/doc/ScreenShoot.png(ScreenShoot)!
+!http://github.com/zigzag/iTBD/raw/master/doc/ScreenShoot.png(ScreenShoot)!
 
 h2. Copyright
 
