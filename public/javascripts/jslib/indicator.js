@@ -24,10 +24,10 @@ var Indicator = function($) {
         for (var i = 0; i < segments.length; ++i) {
             total += segments[i].value;
         }
-        var defaultTotal = 8 * 60 * 60 * 1000;
-        if (total < defaultTotal) {
-            total = defaultTotal;
-        }
+        //var defaultTotal = 8 * 60 * 60 * 1000;
+        //if (total < defaultTotal) {
+        //    total = defaultTotal;
+        //}
 
         // Calculate the percentage of each segment, rounded to the nearest percent.
         var percents = segments.map(function(s) { return Math.max(Math.round(100 * s.value / total), 1) });
@@ -285,7 +285,7 @@ var Indicator = function($) {
     };
     
     var _second2hour = function(s) {
-      return Math.round(s / 3600 * 10) / 10
+      return Math.round(s / 3600 * 10) / 10;
     };
 
     var Indicator = {
@@ -301,7 +301,7 @@ var Indicator = function($) {
           if (logedTasks[log.task_id]) {
             logedTasks[log.task_id].hours += log.duration;
           } else {
-            logedTasks[log.task_id] = {"name":log.task_name, "hours":0, "color":color};
+            logedTasks[log.task_id] = {"name":log.task_name, "hours":log.duration, "color":color};
           }
           totalHours += log.duration;
           fillSegments.push(fillSegment);
@@ -311,12 +311,16 @@ var Indicator = function($) {
           fillSegments.push({color: _SPACE_COLOR, value: leftTime});
         };
         $('#legend').empty();
-        for (var task_id in logedTasks){
-            var task = logedTasks[task_id];
-            $('#legend').append(_makeLegendElement(task.name, _second2hour(task.hours)+"h", task.color, task_id));
-        }
+        //for (var task_id in logedTasks){
+        //    alert(task_id);
+        //    var task = logedTasks[task_id];
+        //    $('#legend').append(_makeLegendElement(task.name, _second2hour(task.hours)+"h", task.color, task_id));
+        //}
+        $.each(logedTasks,function(idx,task) {
+          $('#legend').append(_makeLegendElement(task.name, _second2hour(task.hours)+" h", task.color, task.id));
+        });
         $('#legend').append(_makeLegendElement('Total hours', _second2hour(totalHours)+"h"));
-
+        $('#debug').html(JSON.stringify(fillSegments));
         _drawSummaryGraph(fillSegments);
       }
     };
