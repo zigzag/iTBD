@@ -5,10 +5,10 @@ class Timelog < ActiveRecord::Base
     (possible_end_at - start_at).to_i
   end
 
-  def to_json(opts=nil)
-    option = (opts || {}).merge(:methods => [:duration])
-    super(option)
-  end
+#  def to_json(opts=nil)
+#    option = (opts || {}).merge(:methods => [:duration])
+#    super(option)
+#  end
 
   private 
   def possible_end_at

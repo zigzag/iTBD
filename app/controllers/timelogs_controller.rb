@@ -3,7 +3,7 @@ class TimelogsController < ApplicationController
   # GET /timelogs
   def index
     @timelogs = Timelog.all
-    render :json => @timelogs.to_json
+    render :json => @timelogs.to_json(:methods=>[:duration])
   end
 
   # GET /timelogs/1
