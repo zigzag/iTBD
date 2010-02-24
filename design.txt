@@ -10,10 +10,11 @@ Toggle task -->
   If same with the current task set current task to nil
   else add a new timelog and set to current task
 
-------------------------------------------------------------------------------------------------
 
 set date to Today when initialize Diary
 add a task_today method, returning the task hash with name and acculated seconds.
 add a to_json method in Diary
 
+------------------------------------------------------------------------------------------------
 Introduce a pulse pull 
+add leftTime,totalSeconds in Diary

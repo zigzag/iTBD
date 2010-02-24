@@ -43,4 +43,13 @@ class DiaryTest < ActiveSupport::TestCase
     @d.toggle_task(@t2)
   end
 
+  test "total_seconds and left_seconds in diary" do
+    @d.toggle_task(@t1)
+    sleep(1)
+    @d.toggle_task(@t1)
+    assert_equal(1, @d.total_seconds)
+    assert_equal(8.hours - 1, @d.left_seconds)
+    puts @d.to_json
+  end
+
 end

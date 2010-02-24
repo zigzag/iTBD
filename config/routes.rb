@@ -1,7 +1,7 @@
 ITBD::Application.routes.draw do |map|
   match 'tasks/reorder' => 'tasks#reorder', :as => :reorder
   match 'diary/:id/toggle' => 'diary#toggle', :as => :toggle
-  match 'diary/index' => 'diary#index',  :as => :index
+  match 'diary' => 'diary#index'
   resources :tasks
 
   # The priority is based upon order of creation:

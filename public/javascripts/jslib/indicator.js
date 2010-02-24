@@ -289,37 +289,26 @@ var Indicator = function($) {
     };
 
     var Indicator = {
-      show: function(timelogs) {
+      show: function(diary) {
         var fillSegments = [];
-        var totalHours = 0;
-        var logedTasks = {};
-        
+        var logedTasks = diary.tasks_today;
+        var timelogs = diary.timelogs;
+
         for (var i=0; i < timelogs.length; i++) {
           var log = timelogs[i];
           var color = DefaultColor[log.task_id % DefaultColor.length];
-          var fillSegment = {color: color, value: _second2hour(log.duration)};
-          if (logedTasks[log.task_id]) {
-            logedTasks[log.task_id].hours += log.duration;
-          } else {
-            logedTasks[log.task_id] = {"name":log.task_name, "hours":log.duration, "color":color};
-          }
-          totalHours += log.duration;
+          var fillSegment = {color: color, value: log.duration};
           fillSegments.push(fillSegment);
         }
-        var leftTime = 8 - _second2hour(totalHours);
-        if (leftTime > 0) {
-          fillSegments.push({color: _SPACE_COLOR, value: leftTime});
+        if (diary.left_seconds > 0) {
+          fillSegments.push({color: _SPACE_COLOR, value: diary.left_seconds});
         };
         $('#legend').empty();
-        //for (var task_id in logedTasks){
-        //    alert(task_id);
-        //    var task = logedTasks[task_id];
-        //    $('#legend').append(_makeLegendElement(task.name, _second2hour(task.hours)+"h", task.color, task_id));
-        //}
         $.each(logedTasks,function(idx,task) {
-          $('#legend').append(_makeLegendElement(task.name, _second2hour(task.hours)+" h", task.color, task.id));
+          var color = DefaultColor[task.id % DefaultColor.length];
+          $('#legend').append(_makeLegendElement(task.name, _second2hour(task.seconds)+" h", color, task.id));
         });
-        $('#legend').append(_makeLegendElement('Total hours', _second2hour(totalHours)+"h"));
+        $('#legend').append(_makeLegendElement('Total hours', _second2hour(diary.total_seconds)+"h"));
         $('#debug').html(JSON.stringify(fillSegments));
         _drawSummaryGraph(fillSegments);
       }

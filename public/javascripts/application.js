@@ -38,8 +38,8 @@ jQuery(function($) {
             }
         });
 
-        $.getJSON("/timelogs", function(logs){
-          Indicator.show(logs);
+        $.getJSON("/diary", function(diary){
+          Indicator.show(diary);
         });
     };
 
@@ -66,7 +66,7 @@ jQuery(function($) {
     });
 
     $('.task_item').live("dblclick",function() {
-        $.post('/tasks/'+$(this).attr('id')+"/toggle",{},function() {
+        $.post('/diary/'+$(this).attr('id')+"/toggle",{},function() {
           refresh(currentTimeLog);
         });
     });

@@ -1,8 +1,9 @@
 class Diary < ActiveRecord::Base
+  WORKING_HOURS = 8.hours
+
   has_many :timelogs
   belongs_to :current_task, :class_name => "Task"
   after_initialize :set_default_date
-
   def set_default_date 
     self.date = Date.today
   end
@@ -25,13 +26,22 @@ class Diary < ActiveRecord::Base
   def tasks_today
     task_hash = {}
     timelogs.each do |log|
-      task_hash[log.task.id] ||= {:name => log.task_name,:seconds => 0}
+      task_hash[log.task.id] ||= {:id => log.task.id, :name => log.task_name,:seconds => 0}
       task_hash[log.task.id][:seconds] += log.duration
     end 
     task_hash.values
   end
   
   def to_json(opt=nil)
-    super((opt||{}).merge(:include => :timelogs, :methods => [:tasks_today,:duration]))
+    super((opt||{}).merge(:include => :timelogs, :methods => [:tasks_today,:duration,:total_seconds,:left_seconds]))
   end
+
+  def total_seconds
+    @total_seconds ||= timelogs.all.sum(&:duration)
+  end
+
+  def left_seconds
+    (WORKING_HOURS - total_seconds).to_i
+  end
+
 end
