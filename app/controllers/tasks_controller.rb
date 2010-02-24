@@ -48,12 +48,4 @@ class TasksController < ApplicationController
     render :json => Task.todos.to_json
   end
   
-  # POST /tasks/1/toggle
-  def toggle
-    @task = Task.find(params[:id])
-    Task.todos.each { |task| task.stop if task != @task}
-    @task.toggle
-    render :json => @task.to_json
-  end
-  
 end

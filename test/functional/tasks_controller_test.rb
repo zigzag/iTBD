@@ -33,16 +33,4 @@ class TasksControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  # test "should reorder tasks" do
-  #   post :reorder, :ids => [3,2]
-  #   assert_equal(1, tasks(:three).priority)
-  #   assert_equal(2, tasks(:two).priority)
-  # end
-
-  test "should toggle task" do
-    old_active = tasks(:two).active?
-    post :toggle, :id => tasks(:two).to_param
-    assert(Task.find(2).active? != old_active , "Should toggle the active")
-  end
-
 end

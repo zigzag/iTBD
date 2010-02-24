@@ -9,25 +9,31 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100117091901) do
+ActiveRecord::Schema.define(:version => 20100224065307) do
+
+  create_table "diaries", :force => true do |t|
+    t.integer  "current_task_id"
+    t.date     "date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "tasks", :force => true do |t|
     t.string   "name"
     t.boolean  "done"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "active"
     t.integer  "priority"
   end
 
   create_table "timelogs", :force => true do |t|
     t.datetime "start_at"
     t.datetime "end_at"
-    t.date     "date"
     t.integer  "task_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "task_name"
+    t.integer  "diary_id"
   end
 
 end
