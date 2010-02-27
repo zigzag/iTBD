@@ -1,6 +1,7 @@
 class DiaryController < ApplicationController
   # GET /diary
   def index
+    diary_today.pulse
     render(:json => diary_today.to_json)
   end
 

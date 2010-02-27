@@ -4,13 +4,17 @@ class Diary < ActiveRecord::Base
   has_many :timelogs
   belongs_to :current_task, :class_name => "Task"
   after_initialize :set_default_date
+
   def set_default_date 
     self.date = Date.today
   end
 
+  def pulse
+    timelogs.last.try(:update_attribute,:end_at,Time.now) if (date == Date.today)
+  end
+
   def toggle_task(task)
-    last_timelog = timelogs.last
-    last_timelog.update_attribute(:end_at,Time.now) if last_timelog
+    pulse
     if (task == current_task)
       self.current_task = nil
     else

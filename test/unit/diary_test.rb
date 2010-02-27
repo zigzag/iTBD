@@ -52,4 +52,11 @@ class DiaryTest < ActiveSupport::TestCase
     puts @d.to_json
   end
 
+  test "update end_at while pulse" do
+    @d.toggle_task(@t1)
+    assert_nil(@d.timelogs[0].end_at)
+    @d.pulse
+    assert_not_nil(@d.timelogs[0].end_at)
+  end
+
 end
