@@ -309,7 +309,7 @@ var Indicator = function($) {
           $('#legend').append(_makeLegendElement(task.name, _second2hour(task.seconds)+" h", color, task.id));
         });
         $('#legend').append(_makeLegendElement('Total hours', _second2hour(diary.total_seconds)+"h"));
-        $('#debug').html(JSON.stringify(fillSegments));
+        //$('#debug').html(JSON.stringify(fillSegments));
         _drawSummaryGraph(fillSegments);
       }
     };

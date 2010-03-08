@@ -56,7 +56,11 @@ class DiaryTest < ActiveSupport::TestCase
     @d.toggle_task(@t1)
     assert_nil(@d.timelogs[0].end_at)
     @d.pulse
-    assert_not_nil(@d.timelogs[0].end_at)
+    should_end_at = @d.timelogs[0].end_at
+    assert_not_nil(should_end_at)
+    @d.toggle_task(@t1)
+    @d.pulse
+    assert_equal(should_end_at.to_s, @d.timelogs[0].end_at.to_s)
   end
 
 end

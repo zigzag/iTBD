@@ -1,0 +1,18 @@
+<ul>
+  <table>
+    <th>No.</th>
+    <th>Task Name</th>
+    <th>Start~End</th>
+    <th>Hours</th>
+    <% @details.each_with_index do |item,idx| %> 
+    <tr>
+      <td><%=idx+1%></td>
+      <td><%=item.task_name%></td>
+      <td><%=item.start_at.to_formatted_s(:short)%> ~ <%=item.end_at.to_formatted_s(:short)%></td>
+      <td><%=number_with_precision(item.duration/1.hour.to_f, :precision => 1) %></td>
+    </tr>
+    <% end %>
+    <tr colspan="4"><td> Total hours: <b><%=number_with_precision(@total_hours/1.hour.to_f,:precision => 1)%></b>h. </td></tr>
+  </table>
+
+</ul>

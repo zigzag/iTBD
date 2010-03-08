@@ -10,12 +10,6 @@ jQuery(function($) {
         }).append($("<span />", {
             "class": "delete_task_btn ui-icon ui-icon-circle-close",
             task_id: task.id
-        // })).append($("<input />", {
-        //     name: "hour",
-        //     "class": "input_hour",
-        //     type: "text",
-        //     task_id: task.id,
-        //     value: task.hour
         })).append(task.name);
     };
     var refreshDiary = function() {

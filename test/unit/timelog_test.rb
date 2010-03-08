@@ -9,4 +9,9 @@ class TimelogTest < ActiveSupport::TestCase
     assert_equal(1.hour, t.duration)
   end
 
+  test "search" do
+    result = Timelog.search(Date.parse('2010-01-01'),Date.parse('2010-03-09'),'iTBD')
+    assert_equal(1, result.size)
+    assert_equal('Coding #iTBD', result[0].task_name)
+  end
 end

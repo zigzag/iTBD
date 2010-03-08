@@ -16,7 +16,10 @@ add a task_today method, returning the task hash with name and acculated seconds
 add a to_json method in Diary
 add leftTime,totalSeconds in Diary
 
-------------------------------------------------------------------------------------------------
 Add focus on active task
 Introduce a pulse pull (can be call from the diary index action)
+
+------------------------------------------------------------------------------------------------
+
+Generated report according to hash tags.
 

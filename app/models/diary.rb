@@ -6,11 +6,11 @@ class Diary < ActiveRecord::Base
   after_initialize :set_default_date
 
   def set_default_date 
-    self.date = Date.today
+    self.date ||= Date.today
   end
 
   def pulse
-    timelogs.last.try(:update_attribute,:end_at,Time.now) if (date == Date.today)
+    timelogs.last.try(:update_attribute,:end_at,Time.now) if (current_task && date == Date.today)
   end
 
   def toggle_task(task)
