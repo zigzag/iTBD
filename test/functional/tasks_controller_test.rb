@@ -26,8 +26,8 @@ class TasksControllerTest < ActionController::TestCase
   end
 
   test "should destroy task" do
-    assert_difference('Task.count', -1) do
-      delete :destroy, :id => tasks(:one).to_param
+    assert_difference('Task.todos.count', -1) do
+      delete :destroy, :id => tasks(:two).to_param
     end
 
     assert_response :success

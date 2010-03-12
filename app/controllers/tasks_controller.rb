@@ -38,7 +38,8 @@ class TasksController < ApplicationController
   # DELETE /tasks/1
   def destroy
     @task = Task.find(params[:id])
-    @task.destroy
+#    @task.destroy
+    @task.update_attribute(:done,true)
     render :json => Task.todos.to_json
   end
   
