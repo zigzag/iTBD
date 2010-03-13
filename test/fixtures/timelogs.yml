@@ -4,11 +4,12 @@ one:
   start_at: 2010-01-15 19:56:52
   task_id: 1
   diary_id: 1
+  task_name: 'Coding'
 two:
   start_at: 2010-01-16 18:56:52
   task_id: 1
   diary_id: 1
-  
+  task_name: 'Design' 
 three:
   start_at: 2010-03-08 19:00:00
   task_id: 2
