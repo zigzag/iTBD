@@ -1,10 +1,13 @@
 class DiaryController < ApplicationController
   # GET /diary
   def index
+  end
+
+  def pulse
     diary_today.pulse
     render(:json => diary_today.to_json)
   end
-
+  
   # PUT /diary/1
   def toggle
     diary_today.toggle_task(Task.find(params[:id]))

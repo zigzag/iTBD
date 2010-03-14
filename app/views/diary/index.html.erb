@@ -1,0 +1,15 @@
+<%= javascript_include_tag 'diary.js' %>
+<div class="center">
+  <p>&nbsp;</p>
+  <canvas id="canvas" width="800px" height="50px"></canvas>
+  <div id="legend"></div>
+  <div id="add_task_div">
+      <form id="add_task_form" method="post">
+          <p>
+              <label for="taskName">New Task:</label>
+              <input id="taskName" class="text ui-widget-content ui-corner-all" type="text" name="taskName" maxlength="160"/>
+          </p>
+      </form>
+  </div>
+  <ol id="tasks"></ol>
+</div>

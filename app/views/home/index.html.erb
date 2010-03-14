@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>Things to be done!</title>
+<%= stylesheet_link_tag 'theme/jquery-ui-1.7.2.custom' %>
+<%= stylesheet_link_tag 'indicator' %>
+<%= javascript_include_tag 'jslib/jquery-1.4.2.min.js' %>
+<%= javascript_include_tag 'jslib/json2.js' %>
+<%= javascript_include_tag 'jslib/indicator.js' %>
+<%= javascript_include_tag 'jslib/jquery.ba-dotimeout.js' %>
+<%= javascript_include_tag 'jslib/jquery-ui-1.8rc3.custom.min.js' %>
+<%= javascript_include_tag 'application.js' %>
+<%= csrf_meta_tag %>
+    </head>
+    <body class="ui-widget">
+      <div id="debug"></div>
+      <p id="notice" class="notice"><%= notice %></p>
+      <div id="tabs">
+          <ul>
+            <li><a href="/diary">Diary</a></li>
+            <li><a href="/report">Report</a></li>
+           </ul>
+       </div>
+    </body>
+</html>

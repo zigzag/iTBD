@@ -19,7 +19,8 @@ add leftTime,totalSeconds in Diary
 Add focus on active task
 Introduce a pulse pull (can be call from the diary index action)
 
+Generated report according to hash tags.
 ------------------------------------------------------------------------------------------------
 
-Generated report according to hash tags.
+Add tabs for diary and search
 

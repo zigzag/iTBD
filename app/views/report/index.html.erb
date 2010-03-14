@@ -1,15 +1,14 @@
-<h1>Hours Report</h1>
+<%= javascript_include_tag 'report.js' %>
 <div class="center">
    <form id="report_form" method="post">
      From: <input id="from_date" class="text ui-widget-content ui-corner-all" type="text" size="10"> &nbsp; 
      To: <input id="to_date" class="text ui-widget-content ui-corner-all" type="text" size="10"> &nbsp;
      Tag:<input id="tag" class="text ui-widget-content ui-corner-all" type="text" name="taskName" maxlength="60"/>
-     <input type="submit" value="List"/>
+     <input type="submit" value="Show"/>
    </form>
  </div>
  <div id="report_div">
    <%= render(:partial => 'report_detail')%> 
  </div>
 </div>
-
 

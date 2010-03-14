@@ -3,7 +3,6 @@
 <head>
   <title>Things have been done.</title>
   <%= stylesheet_link_tag 'theme/jquery-ui-1.7.2.custom' %>
-  <%# javascript_include_tag :defaults %>
   <%= javascript_include_tag 'jslib/jquery-1.4.js' %>
   <%= javascript_include_tag 'jslib/jquery-ui-1.7.2.custom.min.js' %>
   <%= javascript_include_tag 'report.js' %>
