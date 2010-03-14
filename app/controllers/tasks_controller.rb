@@ -5,7 +5,7 @@ class TasksController < ApplicationController
   
   # GET /tasks
   def index
-    @tasks = Task.todos
+    @tasks = todos
     render :json => @tasks.to_json
   end
 
@@ -19,7 +19,7 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(params[:task])
     if @task.save
-      render :json => Task.todos.to_json
+      render :json => todos.to_json
     else
       render :json => @task.errors, :status => :unprocessable_entity
     end
@@ -29,7 +29,7 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
     if @task.update_attributes(params[:task])
-      render :json => Task.todos.to_json
+      render :json => todos.to_json
     else
       render :json => @task.errors, :status => :unprocessable_entity
     end
@@ -40,13 +40,17 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
 #    @task.destroy
     @task.update_attribute(:done,true)
-    render :json => Task.todos.to_json
+    render :json => todos.to_json
   end
   
   # POST /tasks/reorder
   def reorder
     Task.reorder(params[:ids])
-    render :json => Task.todos.to_json
+    render :json => todos.to_json
   end
   
+  private
+  def todos
+    Task.todos.all
+  end
 end
