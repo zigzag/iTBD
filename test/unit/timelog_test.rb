@@ -14,4 +14,11 @@ class TimelogTest < ActiveSupport::TestCase
     assert_equal(1, result.size)
     assert_equal('Coding #iTBD', result[0].task_name)
   end
+
+  test "search should ignore case" do
+    result = Timelog.search(Date.parse('2010-01-01'),Date.parse('2010-03-09'),'itbd')
+    assert_equal(1, result.size)
+    assert_equal('Coding #iTBD', result[0].task_name)
+  end
 end
+

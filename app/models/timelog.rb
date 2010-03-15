@@ -10,6 +10,6 @@ class Timelog < ActiveRecord::Base
   def self.search(from,to,tag)
     diaries = Diary.where('date between :from and :to',{:from => from,:to => to})
     timelogs = diaries.includes(:timelogs).map(&:timelogs).flatten
-    hit_timelogs = timelogs.select{|x| x.task_name.try(:include?,tag)}
+    hit_timelogs = timelogs.select{|x| x.task_name =~ /#{tag}/i}
   end
 end
