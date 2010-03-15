@@ -27,6 +27,7 @@ jQuery(function($) {
             var task = tasks[i];
             tasksContainer.append(newTaskItem(task));
           }
+          refreshDiary();
         });
 
         tasksContainer.sortable({
@@ -36,14 +37,12 @@ jQuery(function($) {
             }
         });
 
-        refreshDiary();
     };
 
     $.doTimeout(60 * 1000,function(){
         refreshDiary();
         return true;
     });
-
 
     $('#add_task_form').submit(function(){
         $.post('/tasks',{"task":{"name":$('#taskName').val()}}, function() {
