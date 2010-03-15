@@ -18,6 +18,7 @@ class TasksController < ApplicationController
   # POST /tasks
   def create
     @task = Task.new(params[:task])
+    @task.priority = todos.size + 1
     if @task.save
       render :json => todos.to_json
     else

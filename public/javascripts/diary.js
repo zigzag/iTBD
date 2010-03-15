@@ -13,6 +13,7 @@ jQuery(function($) {
     };
     var refreshDiary = function() {
       $.getJSON("/diary/pulse", function(diary){
+        $('.task_item').removeClass('ui-state-highlight');
         if (diary.current_task_id){
           $('#' + diary.current_task_id).removeClass('ui-state-default').addClass('ui-state-highlight');
         }
@@ -57,12 +58,14 @@ jQuery(function($) {
         $.post('/tasks/'+$(this).attr('task_id'),{"_method":"delete"}, function() {
           refresh();
         });
+        return false;
     });
 
     $('.task_item').live("dblclick",function() {
         $.post('/diary/'+$(this).attr('id')+"/toggle",{},function() {
           refresh();
         });
+        return false;
     });
 
     refresh();
