@@ -5,7 +5,7 @@ ITBD::Application.routes.draw do |map|
   match 'diary/pulse' => 'diary#pulse'
   
   match 'report' => 'report#index'
-  match 'report/list' => 'report#list'
+  match 'report/list' => 'report#list', :as => :report_list
   resources :tasks
 
   root :to => "home#index"

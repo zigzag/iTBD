@@ -1,12 +1,17 @@
 class ReportController < ApplicationController
   def index
     @details = Timelog.search(Date.today,Date.today,'')
-    @total_hours = @details.sum(&:duration)
+    sum_up
   end
 
   def list
     @details = Timelog.search(Date.parse(params[:from]),Date.parse(params[:to]),params[:tag])
+    sum_up
+  end
+
+  private
+
+  def sum_up
     @total_hours = @details.sum(&:duration)
-    render(:partial => 'report_detail') 
   end
 end
