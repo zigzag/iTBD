@@ -14,7 +14,7 @@ jQuery(function($) {
     };
     var refreshDiary = function() {
       $.getJSON("/diary/pulse", function(diary){
-        $('.task_item').removeClass('ui-state-highlight');
+        $('.task_item').removeClass('ui-state-highlight').addClass('ui-state-default');
         if (diary.current_task_id){
           $('#' + diary.current_task_id).removeClass('ui-state-default').addClass('ui-state-highlight');
         }
