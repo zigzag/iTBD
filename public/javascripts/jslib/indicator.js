@@ -1,13 +1,18 @@
 var Indicator = function($) {
     var _SPACE_COLOR = "rgb(186,186,186)";
-    var DefaultColor = [
-        "rgb(157, 231, 119)",
-        "rgb(255, 12 , 62 )",
-        "rgb(164, 60 , 255)",
-        "rgb(255, 121, 0  )",
-        "rgb(231, 231, 10 )"
-    ];
-
+    var DefaultColor = [];
+    var _randomColorGenerate = function() {
+       DefaultColor = [];
+       for ( i = 1; i < 100; i++ ) {
+          var rgbColor = '';
+          for ( j = 1; j < 4; j++ ) {
+             rgbColor +=  Math.floor(Math.random() * (250+1));
+             if ( j != 3 ) rgbColor += ',';
+          }
+          DefaultColor.push("rgb("+rgbColor+")");
+       }
+    };
+    _randomColorGenerate();
     var _drawSummaryGraph = function(segments) {
         // if (!this.summaryGraphElement)
         //     return;
