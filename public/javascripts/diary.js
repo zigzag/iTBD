@@ -9,7 +9,8 @@ jQuery(function($) {
         }).append($("<span />", {
             "class": "delete_task_btn ui-icon ui-icon-circle-close",
             task_id: task.id
-        })).append(task.name);
+        })).append($("<span />", {
+            "class": "ui-icon ui-icon-arrowthick-2-n-s hanlder"})).append(task.name);
     };
     var refreshDiary = function() {
       $.getJSON("/diary/pulse", function(diary){
@@ -32,7 +33,7 @@ jQuery(function($) {
         });
 
         tasksContainer.sortable({
-            placeholder: 'ui-state-highlight',
+            handle: '.hanlder',
             update: function(event, ui) {
                 $.post('/tasks/reorder',{"ids":tasksContainer.sortable('toArray')});
             }

@@ -38,6 +38,7 @@
 #tasks { list-style-type: numburic; margin: 0; padding: 0; }
 #tasks li { margin: 2px 3px 3px 20px; padding: 0.4em; padding-left: 1.5em;  height: 28px; }
 #tasks li span {margin-left: -1.3em; margin-top: 6px; display:inline-block;}
+#tasks li span.hanlder {margin-left: -1.3em; margin-top: 6px; display:inline-block; float:right;}
 #tasks .detail {margin: 0 3px 3px 3px; font-size:0.8em; color:#999;}
 
 .resources-graph-legend-header { width: 80px; overflow: hidden; }
