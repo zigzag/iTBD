@@ -1,0 +1,26 @@
+#report_grid {
+  border-collapse:collapse;
+  font-family:"Lucida Sans Unicode","Lucida Grande",Sans-Serif;
+  font-size:12px;
+  margin:20px;
+  text-align:right;
+}
+#report_grid th {
+  border-bottom:2px solid #6678B1;
+  color:#003399;
+  font-size:14px;
+  font-weight:normal;
+  padding:10px 8px;
+}
+#report_grid td {
+  border-bottom:1px solid #CCCCCC;
+  color:#666699;
+  padding:6px 8px;
+}
+#report_grid .task_name {
+  text-align:left;
+}
+#report_grid tbody tr:hover td {
+  color:#000099;
+}
+
