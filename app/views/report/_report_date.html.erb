@@ -1,0 +1,11 @@
+<script>
+jQuery(function($) {
+    $('#from_date').datepicker().datepicker( 'setDate' , new Date());
+    $('#to_date').datepicker().datepicker( 'setDate' , new Date());
+    var date_json = <%=raw date_json.to_json %>;
+    $('#period').change(function(){
+      $('#from_date').datepicker('setDate',new Date(date_json[$('#period').val()][0]));
+      $('#to_date').datepicker('setDate',new Date(date_json[$('#period').val()][1]));
+    });
+});
+</script>

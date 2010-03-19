@@ -1,14 +1,14 @@
-<%= javascript_include_tag 'report.js' %>
+<%= render(:partial => 'report_date') %>
 <div class="center">
   <%form_tag(report_list_path,:remote => true) do %>
+    <%= select_tag 'period', options_for_select(ReportController::DATE_PREIOD) %>
      From: <input id="from_date" class="text ui-widget-content ui-corner-all" type="text" size="10" name="from"> &nbsp; 
      To: <input id="to_date" class="text ui-widget-content ui-corner-all" type="text" size="10" name="to"> &nbsp;
      Tag:<input id="tag" class="text ui-widget-content ui-corner-all" type="text" name="tag" maxlength="60"/>
-     <input type="submit" value="Show"/>
+     <%= submit_tag 'Show' %>
   <%end%>
  </div>
  <div id="report_div" class="center">
    <%= render(:partial => 'report_detail')%> 
  </div>
 </div>
-
